@@ -77,7 +77,7 @@ export default function SkillsSection() {
                   {cert.icon}
                 </div>
                 <p 
-                  className="text-sm md:text-4xl font-medium opacity-80"
+                  className="text-sm md:text-3xl font-medium opacity-80"
                   style={{ color: colors.darkCharcoal }}
                 >
                   {cert.title}

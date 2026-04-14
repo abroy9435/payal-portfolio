@@ -15,7 +15,7 @@ export default function Hero() {
         initial={{ x: -40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex-1 flex flex-col relative -top-30 -right-100 items-end md:items-start text-right md:text-left z-10"
+        className="flex-1 flex flex-col relative -top-30 left-15  items-end md:items-end text-right md:text-left z-10"
       >
         <div style={{ color: colors.primaryRed }} >
           <span className="text-xl font-serif italic md:text-7xl text-medium block mb-[-10px] ml-1">hi, I'm</span>
