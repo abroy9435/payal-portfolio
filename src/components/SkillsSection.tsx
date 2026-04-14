@@ -6,6 +6,7 @@ import {
   SiJavascript, SiCss, SiPython 
 } from "react-icons/si";
 import { FaDatabase, FaAward, FaLightbulb, FaChartSimple } from "react-icons/fa6"; 
+import { FiArrowUpRight } from "react-icons/fi";
 
 const certifications = [
   { title: "Google UX Design Professional Certificate - Google", icon: <FaAward /> },
@@ -52,23 +53,42 @@ export default function SkillsSection() {
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -30, backgroundColor: "#F3F0E9" }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              // Increased padding (py-6) to make the pills thicker like the design
-              className="flex items-center gap-5 px-8 py-5 md:py-6 rounded-full transition-all hover:scale-[1.02]"
-              style={{ backgroundColor: "#F3F0E9" }} 
+              transition={{ 
+                opacity: { delay: index * 0.1, duration: 0.5 },
+                x: { delay: index * 0.1, duration: 0.5 }
+              }}
+              // THE FIX: Move hover states here and force an immediate transition
+              whileHover={{ 
+                scale: 1.02, 
+                backgroundColor: colors.beigeHover,
+                transition: { duration: 0.2 } 
+              }}
+              // THE FIX: Removed tailwind 'transition-all' and 'hover:scale-[1.02]' 
+              // to prevent CSS and Framer Motion from fighting
+              className="group flex items-center justify-between px-8 py-5 md:py-6 cursor-pointer rounded-full shadow-sm"
             >
-              <div className="text-2xl opacity-60" style={{ color: colors.darkCharcoal }}>
-                {cert.icon}
+              
+              {/* Left Side: Icon and Title wrapped together */}
+              <div className="flex items-center gap-5">
+                <div className="text-2xl opacity-60 shrink-0" style={{ color: colors.darkCharcoal }}>
+                  {cert.icon}
+                </div>
+                <p 
+                  className="text-sm md:text-4xl font-medium opacity-80"
+                  style={{ color: colors.darkCharcoal }}
+                >
+                  {cert.title}
+                </p>
               </div>
-              <p 
-                className="text-sm md:text-base font-medium opacity-80"
-                style={{ color: colors.darkCharcoal }}
-              >
-                {cert.title}
-              </p>
+
+              {/* Right Side: The Expanding Sliding Arrow (Handles its own transition) */}
+              <div className="overflow-hidden transition-all duration-300 max-w-0 opacity-0 group-hover:max-w-[24px] group-hover:opacity-100 group-hover:ml-4 flex items-center shrink-0">
+                <FiArrowUpRight className="text-xl md:text-2xl shrink-0" style={{ color: colors.darkCharcoal }} />
+              </div>
+
             </motion.div>
           ))}
         </div>
@@ -79,20 +99,16 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          // Increased outer padding to give the grid more breathing room
           className="flex-shrink-0 bg-[#F3F0E9] p-10 md:p-14 rounded-[3rem] shadow-sm"
         >
-          {/* Increased gap between icons */}
           <div className="grid grid-cols-3 gap-8 md:gap-10">
             {techStack.map((tech, index) => (
               <div 
                 key={index} 
-                // Significantly increased width/height of the white tiles (w-24 h-24 on desktop)
                 className="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 bg-white rounded-3xl shadow-sm transition-transform hover:scale-110 cursor-pointer"
                 title={tech.name}
               >
                 <div 
-                  // Increased icon size to fill the larger tiles nicely
                   className="text-3xl md:text-5xl"
                   style={{ color: tech.color }} 
                 >

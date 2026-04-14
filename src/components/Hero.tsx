@@ -15,13 +15,13 @@ export default function Hero() {
         initial={{ x: -40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex-1 flex flex-col items-end md:items-start text-right md:text-left z-10"
+        className="flex-1 flex flex-col relative -top-30 -right-100 items-end md:items-start text-right md:text-left z-10"
       >
-        <div style={{ color: colors.primaryRed }}>
-          <span className="text-xl md:text-2xl font-sans block mb-[-10px] ml-1">hi, I'm</span>
-          <h1 className="font-serif italic text-7xl md:text-9xl leading-none">
+        <div style={{ color: colors.primaryRed }} >
+          <span className="text-xl font-serif italic md:text-7xl text-medium block mb-[-10px] ml-1">hi, I'm</span>
+          <span className="font-serif italic text-lg md:text-9xl text-medium leading-none">
             Payal
-          </h1>
+          </span>
         </div>
       </motion.div>
 
@@ -33,7 +33,7 @@ export default function Hero() {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.8, type: "spring" }}
-          className="absolute -top-10 -right-12 w-24 h-24 z-20"
+          className="absolute -top-45 -right-18 w-65 h-65 z-20"
         >
           <Image src="/assets/vectors/doodle1.svg" alt="" fill className="object-contain" />
         </motion.div>
@@ -43,7 +43,7 @@ export default function Hero() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-[280px] h-[380px] md:w-[350px] md:h-[480px] rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-10"
+          className="relative w-80 h-105 md:w-[350px] md:h-[480px] rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-10"
           style={{ border: `4px solid white` }}
         >
           <Image 
@@ -71,12 +71,12 @@ export default function Hero() {
         initial={{ x: 40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="flex-1 text-center md:text-left z-10"
+        className="flex-1 relative -bottom-40 -left-10 text-center md:text-left z-10"
       >
-        <h2 className="text-4xl md:text-6xl font-sans font-medium leading-[1.1]">
+        <h2 className="text-4xl md:text-6xl font-sans font-normal leading-[1.1]">
           <span style={{ color: colors.primaryRed }}>Product designer</span>
           <br /> 
-          <span style={{ color: colors.darkCharcoal, opacity: 0.6 }} className="font-light">
+          <span style={{ color: colors.primaryRed }} className="font-normal">
             and Data Analyst
           </span>
         </h2>

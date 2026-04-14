@@ -2,26 +2,32 @@
 import { motion } from "framer-motion";
 import { colors } from "@/utils/colors";
 import { IoCloudDownloadOutline } from "react-icons/io5";
+import { FiArrowUpRight } from "react-icons/fi";
 
 export default function ContactSection() {
   const contactLinks = [
     {
       label: "Email",
       value: "payalpaulchoudhury20@gmail.com",
-      href: "mailto:payalpaulchoudhury20@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=payalpaulchoudhury20@gmail.com",
+      showArrow: true,
+      newTab: true,
     },
     {
       label: "Linkedin",
       value: "linkedin.com/payal-paul-choudhury",
-      href: "https://linkedin.com/in/payal-paul-choudhury", // Make sure to link to her actual profile
+      href: "https://www.linkedin.com/in/payal-paul-choudhury-832910303/",
+      showArrow: true,
+      newTab: true,
     },
     {
-        label: "Download resume",
-        // We wrap it in a span to keep TypeScript happy!
-        value: <span className="text-2xl"><IoCloudDownloadOutline /></span>, 
-        href: "/assets/Payal_Resume.pdf", 
-        download: true,
-      },
+      label: "Download resume",
+      value: <span className="text-2xl"><IoCloudDownloadOutline /></span>,
+      href: "/assets/Payal_Resume.pdf", 
+      download: true,
+      showArrow: false,
+      newTab: true,
+    },
   ];
 
   return (
@@ -50,34 +56,51 @@ export default function ContactSection() {
         </motion.div>
 
         {/* Links List */}
-        <div className="w-full flex flex-col gap-4 md:gap-6">
+        <div className="min-w-220 flex flex-col gap-4 md:gap-6">
           {contactLinks.map((link, index) => (
             <motion.a
               key={link.label}
               href={link.href}
-              target={link.label === "Linkedin" ? "_blank" : undefined}
-              rel={link.label === "Linkedin" ? "noopener noreferrer" : undefined}
+              target={link.newTab ? "_blank" : undefined}
+              rel={link.newTab ? "noopener noreferrer" : undefined}
               download={link.download}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20, backgroundColor: "#F3F0E9" }}
               whileInView={{ opacity: 1, y: 0 }}
+              // Smooth background transition using Framer Motion
+              whileHover={{ backgroundColor: colors.beigeHover }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group flex flex-col md:flex-row items-start md:items-center justify-between w-full px-8 py-6 rounded-3xl transition-all duration-300 hover:scale-[1.02] shadow-sm hover:shadow-md"
-              style={{ backgroundColor: "#F3F0E9" }} // Light beige pill background
+              transition={{ 
+                opacity: { delay: index * 0.1, duration: 0.6 },
+                y: { delay: index * 0.1, duration: 0.6 },
+                backgroundColor: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group flex flex-col md:flex-row items-start md:items-center justify-between w-full px-8 py-7 rounded-[2rem] cursor-pointer shadow-sm"
             >
               <span 
-                className="text-lg md:text-xl font-medium"
+                className="text-lg md:text-2xl font-medium"
                 style={{ color: colors.primaryRed }}
               >
                 {link.label}
               </span>
               
-              <span 
-                className="text-base md:text-lg mt-2 md:mt-0 transition-opacity group-hover:opacity-70"
-                style={{ color: colors.primaryRed }}
-              >
-                {link.value}
-              </span>
+              <div className="flex items-center mt-2 md:mt-0">
+                <span 
+                  className="text-base md:text-2xl whitespace-nowrap"
+                  style={{ color: colors.primaryRed }}
+                >
+                  {link.value}
+                </span>
+                
+                {/* THE MAGIC TRICK: 
+                  Starts at max-w-0 (hidden). On hover, it expands to max-w-[24px].
+                  This expansion pushes the text to the left smoothly!
+                */}
+                {link.showArrow && (
+                  <div className="overflow-hidden transition-all duration-300 max-w-0 opacity-0 group-hover:max-w-[24px] group-hover:opacity-100 group-hover:ml-2 flex items-center">
+                    <FiArrowUpRight className="text-xl shrink-0" style={{ color: colors.primaryRed }} />
+                  </div>
+                )}
+              </div>
             </motion.a>
           ))}
         </div>

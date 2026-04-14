@@ -53,7 +53,7 @@ export default function ProjectsSection() {
           Designs in action
         </h2>
         <p 
-          className="max-w-md text-sm md:text-base opacity-50 italic tracking-wide"
+          className="max-w-170 text-lg md:text-2xl opacity-50 italic tracking-wide"
           style={{ color: colors.primaryRed }}
         >
           Designing experiences that are simple, intuitive, and meaningful
@@ -64,7 +64,7 @@ export default function ProjectsSection() {
       <div className="flex justify-center gap-12 md:gap-28 mb-40">
         {folders.map((f) => (
           <div key={f} className="flex flex-col items-center gap-5 group cursor-pointer">
-            <div className="relative w-20 h-20 md:w-28 md:h-28 opacity-80 transition-all group-hover:opacity-100 group-hover:scale-110">
+            <div className="relative w-20 h-20 md:w-50 md:h-50 opacity-80 transition-all group-hover:opacity-100 group-hover:scale-110">
               <Image 
                 src="/assets/vectors/folder.svg" 
                 alt="folder" 
@@ -73,7 +73,7 @@ export default function ProjectsSection() {
               />
             </div>
             <span 
-              className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase text-center max-w-[110px] leading-tight"
+              className="text-[10px] md:text-lg font-medium uppercase text-center leading-tight"
               style={{ color: colors.primaryRed }}
             >
               {f}

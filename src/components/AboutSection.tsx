@@ -17,7 +17,7 @@ export default function AboutSection() {
         className="text-center mb-20"
       >
         <h2
-          className="text-4xl md:text-5xl font-serif italic"
+          className="text-4xl md:text-6xl font-serif italic"
           style={{ color: colors.primaryRed }}
         >
           Person Behind the Canvas
@@ -25,27 +25,27 @@ export default function AboutSection() {
       </motion.div>
 
       {/* MAX WIDTH WRAPPER */}
-      <div className="max-w-330 mx-auto">
+      <div className="max-w-400 mx-auto">
         {/* Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="relative rounded-[2.5rem] px- py-16 md:pl-14 lg:pl-20 flex flex-col lg:flex-row justify-between gap-10 overflow-hidden"
+          className="relative rounded-[2.5rem] min-h-281 px- py-16 md:pl-14 lg:pl-20 flex flex-col lg:flex-row justify-between gap-10 overflow-hidden"
           style={{ backgroundColor: colors.primaryRed }}
         >
           {/* ================= LEFT ================= */}
-          <div className="w-full lg:w-[38%] text-white space-y-6 relative z-10">
+          <div className="w-full lg:w-[38%] text-white space-y-2 relative -bottom-30 z-10">
             {/* Heading + Heart */}
             <div className="relative inline-block">
               <Image
                 src="/assets/vectors/doodle3.svg"
                 alt=""
-                width={28}
-                height={28}
-                className="absolute -left-10 top-1"
+                width={52}
+                height={52}
+                className="absolute -left-15 -top-3"
               />
 
-              <h3 className="text-2xl lg:text-3xl font-bold italic tracking-wide">
+              <h3 className="text-2xl lg:text-5xl font-semibold italic tracking-wide">
                 UI/UX DESIGNER.
               </h3>
 
@@ -53,13 +53,13 @@ export default function AboutSection() {
               <Image
                 src="/assets/vectors/doodle4.svg"
                 alt=""
-                width={90}
-                height={60}
-                className="hidden lg:block absolute -right-24 top-2"
+                width={380}
+                height={300}
+                className="hidden lg:block absolute -right-80 -top-8"
               />
             </div>
 
-            <p className="text-sm lg:text-[15px] leading-7 opacity-90 max-w-md">
+            <p className="text-xl lg:text-3xl font-medium leading-7.5 opacity-90 max-w-lg">
               I am a passionate product designer specializing in website design
               and mobile app design. I enjoy analyzing complex systems and
               translating them into clear, engaging interfaces. From organizing
@@ -68,7 +68,7 @@ export default function AboutSection() {
             </p>
 
             {/* Stamp */}
-            <div className="w-28 h-28 relative bg-white p-2 shadow-md mt-4">
+            <div className="w-80 h-80 relative -bottom-5 bg-white p-2 shadow-md mt-4">
               <Image
                 src="/assets/images/lillystamp.jpg"
                 alt=""
@@ -79,7 +79,7 @@ export default function AboutSection() {
           </div>
 
           {/* ================= CENTER IMAGE ================= */}
-          <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[300px] md:w-[360px] lg:w-[420px] h-[360px] md:h-[420px] lg:h-[480px] z-0 pointer-events-none">
+          <div className="absolute left-180 bottom-0 -translate-x-1/2 w-115 md:w-130 lg:w-215 h-130 md:h-185 lg:h-200 z-0 pointer-events-none">
             <Image
               src="/assets/images/cutout.png"
               alt=""
@@ -89,10 +89,10 @@ export default function AboutSection() {
           </div>
 
           {/* ================= RIGHT ================= */}
-          <div className="w-full lg:w-[38%] text-white space-y-6 relative z-10 lg:pl-10">
+          <div className="w-full lg:w-[38%] text-white space-y-2 relative -bottom-40 -right-6 z-10 lg:pl-10">
             {/* Top images */}
-            <div className="flex gap-4">
-              <div className="w-16 h-16 relative bg-white p-1 shadow-md">
+            <div className="flex relative -right-5 -bottom-2 gap-4">
+              <div className="w-45 h-48 mx-4 relative bg-white p-1 shadow-md">
                 <Image
                   src="/assets/images/hibiscous.jpg"
                   alt=""
@@ -100,7 +100,7 @@ export default function AboutSection() {
                   className="object-cover"
                 />
               </div>
-              <div className="w-16 h-16 relative bg-white p-1 shadow-md">
+              <div className="w-45 h-48 relative bg-white p-1 shadow-md">
                 <Image
                   src="/assets/images/bunny.jpg"
                   alt=""
@@ -116,26 +116,26 @@ export default function AboutSection() {
               <Image
                 src="/assets/vectors/doodle5.svg"
                 alt=""
-                width={24}
-                height={24}
-                className="absolute -left-8 top-1"
+                width={44}
+                height={44}
+                className="absolute -left-11 top-0.8"
               />
 
               {/* Small Star */}
               <Image
                 src="/assets/vectors/doodle6.svg"
                 alt=""
-                width={14}
-                height={14}
-                className="absolute -left-3 -top-4"
+                width={24}
+                height={24}
+                className="absolute -left-2 -top-10"
               />
 
-              <h3 className="text-2xl lg:text-3xl font-bold italic tracking-wide">
+              <h3 className="text-2xl lg:text-5xl font-semibold px-2 italic tracking-wide">
                 DATA ANALYST
               </h3>
             </div>
 
-            <p className="text-sm lg:text-[15px] leading-7 opacity-90 max-w-md">
+            <p className="text-sm lg:text-3xl leading-7.5 font-medium opacity-90 max-w-lg">
               I am a detail-oriented data analyst dedicated to transforming
               complex datasets into clear, actionable narratives. I specialize in
               uncovering patterns and translating technical findings into
